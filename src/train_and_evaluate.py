@@ -16,11 +16,13 @@ import argparse
 import joblib
 import json
 
+
 def eval_metrics(actual, pred):
     rmse = np.sqrt(mean_squared_error(actual, pred))
     mae = mean_absolute_error(actual, pred)
     r2 = r2_score(actual, pred)
     return rmse, mae, r2
+
 
 def train_and_evaluate(config_path):
     config = read_params(config_path)
@@ -84,8 +86,8 @@ def train_and_evaluate(config_path):
 
 
 if __name__ == "__main__":
-    args=argparse.ArgumentParser()
-    args.add_argument("--config", type=str, default="params.yaml",)
+    args = argparse.ArgumentParser()
+    args.add_argument("--config", type=str, default="params.yaml", )
     args.add_argument("--data_path", type=str, default="./data")
-    parsed_args=args.parse_args()
+    parsed_args = args.parse_args()
     train_and_evaluate(config_path=parsed_args.config)
