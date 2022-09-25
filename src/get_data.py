@@ -13,7 +13,7 @@ import argparse
 
 def read_params(config_path):
     with open (config_path) as f:
-        params =yaml.safe_load(f)
+        params = yaml.safe_load(f)
         return  params
 
 def get_data(config_path):
